@@ -1,0 +1,78 @@
+{% extends 'components/custom-base.html' %}
+
+{% load static %}
+
+{% block styles %}
+{% endblock %}
+
+{% block body %}
+    <body class="authentication-background">
+{% endblock %}
+
+{% block content %}
+    <div class="container-lg">
+        <div class="row justify-content-center align-items-center authentication authentication-basic h-100">
+            <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-6 col-sm-8 col-12">
+                <div class="my-5 d-flex justify-content-center"> 
+                    <a href="index"> 
+                        <img src="{% static 'assets/images/brand-logos/desktop-dark.png'%}" alt="logo" class="desktop-dark"> 
+                    </a> 
+                </div>
+                <div class="card custom-card my-4">
+                    <div class="card-body p-5">
+                        <p class="h4 mb-2 fw-semibold">Sign Up</p>
+                        <p class="mb-4 text-muted">Join us by creating a free account!</p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row gy-3">
+                                <div class="col-xl-12">
+                                    <label for="signup-email" class="form-label text-default">Email Address</label>
+                                    {{ form.email|as_widget: "email" }}
+                                </div>
+                                <div class="col-xl-12">
+                                    <label for="signup-password1" class="form-label text-default">Password</label>
+                                    <div class="position-relative">
+                                        {{ form.password1|as_widget: "password" }}
+                                        <a href="javascript:void(0);" class="show-password-button text-muted" onclick="createpassword('signup-password1',this)"  id="button-addon2"><i class="ri-eye-off-line align-middle"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <label for="signup-password2" class="form-label text-default">Confirm Password</label>
+                                    {{ form.password2|as_widget: "password" }}
+                                </div>
+                            </div>
+                            <div class="text-center my-4 authentication-barrier">
+                                <span class="op-4 fs-11">OR SignUp With</span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between gap-3 mb-3 flex-wrap">
+                                <button class="btn btn-light btn-w-lg border d-flex align-items-center justify-content-center flex-fill">
+                                    <span class="avatar avatar-xs">
+                                        <img src="{% static 'assets/images/media/apps/google.png'%}" alt="">
+                                    </span>
+                                    <span class="lh-1 ms-2 fs-13 text-default fw-medium">Google</span>
+                                </button>
+                                <button class="btn btn-light btn-w-lg border d-flex align-items-center justify-content-center flex-fill">
+                                    <span class="avatar avatar-xs">
+                                        <img src="{% static 'assets/images/media/apps/facebook.png'%}" alt="">
+                                    </span>
+                                    <span class="lh-1 ms-2 fs-13 text-default fw-medium">Facebook</span>
+                                </button>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary">Create Account</button>
+                            </div>
+                        </form>
+                        <div class="text-center">
+                            <p class="text-muted mt-3 mb-0">Already have an account? <a href="{% url 'login' %}" class="text-primary">Sign In</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Show Password JS -->
+    <script src="{% static 'assets/js/show-password.js'%}"></script>
+{% endblock %}

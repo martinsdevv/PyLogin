@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-nav-layout="horizontal" data-nav-style="menu-hover" data-menu-position="fixed" data-theme-mode="light">
+
+    <head>
+
+        <!-- Meta Data -->
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="Description" content="Django Bootstrap Responsive Admin Web Dashboard Template">
+        <meta name="Author" content="Spruko Technologies PRIVATE LIMITED">
+        <meta name="keywords" content="django, django admin panel, django template, django framework, admin, django web framework, django admin template, admin theme, bootstrap and django, dashboard, bootstrap for django, dashboard template bootstrap, admin dashboard design, admin dashboard ui, dashboard admin template.">
+        
+        <title> MAMIX - Django Bootstrap 5 Premium Admin & Dashboard Template </title>
+
+        <!-- Favicon -->
+        <link rel="icon" href="{% static 'assets/images/brand-logos/favicon.ico'%}" type="image/x-icon">
+        
+        <!-- Start::styles -->
+        {% include 'components/layouts/ecommercecomponents/ecommerce-styles.html' %}
+        
+        {% block styles %}{% endblock %}
+        <!-- End::styles --> 
+
+	</head>
+
+	<body class="landing-body ecommerce-landing">
+
+        <!-- Start::main-switcher -->
+        {% include 'components/layouts/custom-switcher.html' %}
+        <!-- End::main-switcher -->
+
+        <!-- Start:: Landing-page-->
+        <div class="landing-page-wrapper">
+
+            <!-- Start::main-header -->
+            {% include 'components/layouts/ecommercecomponents/ecommerce-header.html' %}
+            <!-- End::main-header -->
+
+            <!-- Start::main-sidebar -->
+            {% include 'components/layouts/ecommercecomponents/ecommerce-sidebar.html' %}
+            <!-- End::main-sidebar -->
+
+            <!-- Start::main-right-sidebar -->
+            {% include 'components/layouts/ecommercecomponents/ecommerce-right-sidebar.html' %}
+            <!-- End::main-right-sidebar -->
+
+            <!-- Start::app-content -->
+            <div class="main-content landing-main ecommerce-main">
+
+                {% block content %}
+                
+                {% endblock %}
+
+            </div>
+            <!-- End::app-content -->
+            
+            <!-- Start::main-footer -->
+            {% include 'components/layouts/ecommercecomponents/ecommerce-footer.html' %}
+            <!-- End::main-footer -->
+
+		</div>
+        <!-- End::Landing-page -->
+        
+        <!-- Start::scripts -->
+		{% include 'components/layouts/ecommercecomponents/ecommerce-scripts.html' %}
+
+        {% block scripts %}{% endblock %}       
+		<!-- End::scripts --> 
+
+	</body>
+</html>
